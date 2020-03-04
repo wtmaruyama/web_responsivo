@@ -1,6 +1,7 @@
 .secao {
     float: left;
-    width: 33.333%;
+    /* width: 33.333%; */
+    width: 100%; /*  Alterado para o media query mobile first. */
 }
 
 .mini {
@@ -48,4 +49,23 @@ header {
 }
 .barra-nav {
     margin: 0.4em 0;
+}
+
+/* Media queries para aumentar todas as fontes proporcionalmente em telas maiores. */
+/* Dividimos tudo em 3 colunas antes, o que é bom para o Desktop. Mas talvez fosse interessante deixar em 1 coluna em telas pequenas e 2 colunas em telas intermediárias.  */
+@media (min-width: 600px) {
+    html {
+        font-size: 1.125em;
+    }
+    .secao {
+        width: 50%;
+    }
+}
+@media (min-width: 1000px) {
+    html {
+        font-size: 1.25em;
+    }
+    .secao {
+        width: 33.333%;
+    }
 }
