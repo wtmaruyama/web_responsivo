@@ -61,6 +61,7 @@ header {
         width: 50%;
     }
 }
+
 @media (min-width: 1000px) {
     html {
         font-size: 1.25em;
@@ -69,3 +70,54 @@ header {
         width: 33.333%;
     }
 }
+
+@media (max-width: 600px) {
+    .barra-nav {
+        background: #f0f0f0;
+        padding: 1em;
+        margin: 0;
+
+        height: 100%;
+        width: 90%;
+        max-width: 320px; /*  vale para telas pequenas e menu não tampar tudo.  */
+
+        position: fixed; /* posicionar o menu lateralmente fora da tela */
+        z-index: 1;
+        top: 0;
+        left: -90%; /* posicionar o menu lateralmente fora da tela */
+
+        transition: left 0.3s ease-out; /* animação do menu (left é a propriedade a ser animada, tempo e tipo de efeito) */
+        
+    }
+     
+    .menu-ativo .barra-nav {
+        left: 0;
+    }
+
+    .menu-principal li {
+        padding: 1em 0;
+        width: 100%;
+    }
+    /* Parte cinza do lado do menu */
+    .menu-ativo:after {
+        content: "";
+        display: block;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        background: rgba(0,0,0,0.4);
+    }
+}
+
+/* no Desktop o menu lateral não é usado, é esconder os botões  */
+@media not all and (max-width: 600px) {
+    .menu-abrir,
+    .menu-fechar {
+        display: none;
+    }    
+}
+
